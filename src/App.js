@@ -15,6 +15,7 @@ import Home from "./pages/home";
 import Dashboard from "./components/dashboard";
 import Practice from "./pages/practice";
 import About from "./pages/about";
+import GuessingGame from './pages/guessing game';
 import Alert from './components/alert';
 import { loader } from './components/dashboard';
 const router = createBrowserRouter([
@@ -47,6 +48,11 @@ const router = createBrowserRouter([
     path: "/about",
     element: <About />
   },
+  {
+    path: "/guessgame",
+    element: < GuessingGame/>
+  }
+
 
 ]);
 function App() {
