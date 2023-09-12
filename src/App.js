@@ -18,6 +18,7 @@ import About from "./pages/about";
 import GuessingGame from './pages/guessing game';
 import Alert from './components/alert';
 import { loader } from './components/dashboard';
+import UserForm from './pages/hooks/hooks';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -51,8 +52,11 @@ const router = createBrowserRouter([
   {
     path: "/guessgame",
     element: < GuessingGame/>
+  },
+  {
+    path: "/counter",
+    element: <UserForm />
   }
-
 
 ]);
 function App() {

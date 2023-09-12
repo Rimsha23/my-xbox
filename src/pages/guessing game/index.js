@@ -4,6 +4,7 @@ import Input from '../../components/input'
 import Navbar from '../../components/navbar'
 
 const GuessingGame=()=>{
+    let win=0;
 const [isPanelOpen,setIsPanelOpen] = useState(false);
 const handleOpen=()=>{
     setIsPanelOpen(true);
@@ -12,6 +13,8 @@ const [entered,setEntered]= useState('');
 const [input,setInput]= useState('')
 const [count,setCount]= useState(0);
 const [result,setResult]=useState('')
+
+
 const handleOnSubmit=(e)=>{
 e.preventDefault();
 let randomNum =  Math.floor((Math.random() * 15) + 1);
@@ -27,6 +30,8 @@ else if(x === randomNum - 1 || x === randomNum + 1){
 }
 else if(x === randomNum){
     setResult('Your Guess is correct. You Won! 🥳')
+    win += 1; 
+    reset();
 }
 else{
     setResult('Your Guess is too low 🥺')
@@ -34,15 +39,24 @@ else{
 setEntered(entered);
 setInput(entered)
 setCount(count + 1);
-reset();
+
+setEntered('');
+
+
+
+
 }
-const reset=()=>{
-    setEntered('');
+const reset = () => {
+    setInput('');
+    setCount(0);
+    setResult('');
     
-}
+  };
 const handleClose=()=>{
     setIsPanelOpen(false);
-    setResult('');
+    
+reset();
+    
 }
     return (
         <>
@@ -65,6 +79,7 @@ count={count}
 result={result}
 input={input}
 handleClose={handleClose}
+
 />
 
         </>
