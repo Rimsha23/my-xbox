@@ -9,9 +9,9 @@ const variants = {
 }
 
 const sizes = {
-    'small': 'px-1 py-2 text-xs hover:text-xs',
-    'medium': 'px-2 py-2 text-sm',
-    'large': 'px-2 py-3 text-lg'
+    'small': 'px-1 py-1 text-xs hover:text-xs',
+    'medium': 'px-5 py-3 text-sm',
+    'large': 'px-8 py-4 text-lg'
 }
 
 const Button = ({ className, variant = 'primary', size = 'small', ...props }) => {

@@ -1,14 +1,28 @@
 import React,{useState} from "react";
-import { Link } from "react-router-dom";
+import { Link,Navigate} from "react-router-dom";
 import Button from "../../components/button";
 const Login = () => {
+  const [redirect, setRedirect] = useState(false);
+  const [passwordType, setPasswordType] = useState('password');
+  const [text, setText] = useState('Show')
   const onSubmit = (event) => {
     event.preventDefault();
-    console.log("Data:", event);
+    const userName = document.getElementById("username");
+    const password = document.getElementById("password");
+    if (userName.value === "" || password.value === "") {
+      alert("No blank fields are allowed");
+    } else {
+      // Your authentication logic goes here
+      // If authentication is successful, setRedirect(true)
+      setRedirect(true);
+    }
+  };
 
+  if (redirect) {
+    // Redirect to "/home"
+    return <Navigate to="/home" />;
   }
-  const [passwordType, setPasswordType] = useState('password');
-    const [text, setText] = useState('Show')
+ 
   const handleShow = (e) => {
     e.preventDefault();
     if (passwordType === 'password') {
@@ -31,7 +45,8 @@ const Login = () => {
       <div className="w-full flex items-center w-screen justify-center min-h-screen">
         <div className="w-full max-w-xs">
           <form
-            onSubmit={onSubmit}
+           onSubmit={onSubmit}
+           
             className="bg-gray-900 max-w-2xl w-96 shadow-md rounded px-8 pt-4 mb-4"
           >
             <h3 className="text-lg text-white mb-4 text-center font-semibold">Login</h3>

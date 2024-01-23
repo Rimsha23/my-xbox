@@ -1,0 +1,13 @@
+/* Add this CSS to your component's stylesheet or a global stylesheet */
+.custom-marker{
+    transform: translate(-50%, -50%);
+    animation: bounce 2s infinite alternate;
+}
+@keyframes bounce {
+    0% {
+      transform: translate(-50%, -50%) translateY(0);
+    }
+    100% {
+      transform: translate(-50%, -50%) translateY(-20px); /* Adjust the vertical distance */
+    }
+  }

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Navbar from '../../components/navbar';
 import { Collapse, initTE } from 'tw-elements';
 import Button from '../../components/button';
-
+import CardSlider from '../slide';
 initTE({ Collapse });
 
 const About = () => {
@@ -30,9 +30,9 @@ const About = () => {
   const [activeAccordion, setActiveAccordion] = useState(null);
   const handleAccordionToggle = (index) => {
     if (activeAccordion === index) {
-      setActiveAccordion(null); // Close the clicked accordion if it's already open
+      setActiveAccordion(null); 
     } else {
-      setActiveAccordion(index); // Open the clicked accordion
+      setActiveAccordion(index); 
     }
   };
 
@@ -202,6 +202,7 @@ After you confirm your new gamertag, the change is reflected across Xbox. You do
   <div className='mt-6'>
     <Button variant='blue' onClick={toggleMode}>{btnText}</Button>
   </div>
+  <CardSlider/>
         </>
     );
 }

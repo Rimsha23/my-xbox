@@ -7,6 +7,8 @@ import {
   Route,
   Link,
 } from "react-router-dom";
+import { Provider } from 'react-redux';
+import store from './store';
 import Login from "./pages/login";
 import Register from "./pages/login/register";
 import './App.css';
@@ -19,6 +21,13 @@ import GuessingGame from './pages/guessing game';
 import Alert from './components/alert';
 import { loader } from './components/dashboard';
 import UserForm from './pages/hooks/hooks';
+import Slide from './pages/slides';
+import MapComponent from './components/googlemap';
+import CardSlider from './pages/slide';
+import {Todo} from './pages/practice/todo2';
+import { TodoList } from './pages/practice/todo';
+//import Form from './components/dashboard/form';
+//import { TodoList } from './pages/practice/todo';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -56,14 +65,27 @@ const router = createBrowserRouter([
   {
     path: "/counter",
     element: <UserForm />
-  }
-
+  },
+  
+  {
+    path: "/map",
+    element: <MapComponent />
+  },
+  {
+    path: "/todolist",
+    element: <TodoList/>
+  },
+  {
+    path: "/todo",
+    element: <Todo/>
+  },
 ]);
 function App() {
-
   return (
     <>
+    <Provider store={store}>
     <RouterProvider router={router} />
+    </Provider>
     </>
   );
 }

@@ -74,7 +74,7 @@ return (
         </textarea>
         <div className='flex flex-col ml-6'>
         <h2 class='text-2xl text-black text-bold'>Text Summary</h2>
-<p className='text-xs mt-4'>{text.split(' ').filter((el)=>{return el.length != 0}).length} {text.split(' ').length> 1 ? 'words': 'word'} and {text.length} characters</p>
+<p className='text-xs mt-4'>{text.split(' ').filter((el)=>{return el.length != 0}).length} {text.split(' ').length> 1 ? 'words': 'word'} and {text.length} {text.length > 1 ? 'characters': 'character'}</p>
 </div>
         </div>
         <div className='flex flex-row mt-2 '>

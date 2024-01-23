@@ -5,6 +5,7 @@ import Navbar from "../navbar";
 import Button from "../button";
 import axios from "axios";
 import { config } from '../config'
+import Pagination from '../Pagination/index'
 export const loader=async()=>{
   try{
     let response = await axios.get(`${config.apiUrl}/posts`);
@@ -52,18 +53,16 @@ const Dashboard = () => {
       });
   }, []);
   */
-  const handleNextPage = () => {
-    setCurrentPage((prevPage) => prevPage + 1);
-  };
+   const handleNextPage = () => {
+    setCurrentPage((currentPage) => currentPage + 1);
+ };
 
-  const handlePrevPage = () => {
-    setCurrentPage((prevPage) => prevPage - 1);
+   const handlePrevPage = () => {
+     setCurrentPage((currentPage) => currentPage - 1);
   };
-
-  const filteredItems = items.slice(
-    (currentPage - 1) * ItemsPerPage,
-    currentPage * ItemsPerPage
-  );
+const startIndex=  (currentPage - 1) * ItemsPerPage;
+const endIndex=  currentPage * ItemsPerPage
+   const filteredItems = items.slice(startIndex,endIndex);
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -162,7 +161,7 @@ const Dashboard = () => {
             Add
           </Button>
           <div className="flex justify-between mt-4">
-        <Button
+         <Button
           type="button"
           size="medium"
           className='disabled:bg-gray-800'
@@ -179,8 +178,14 @@ const Dashboard = () => {
           onClick={handleNextPage}
         >
           &rarr;
-        </Button>
+        </Button> 
+        {/* <Pagination
+        currentPage={currentPage}
+        totalPages={Math.ceil(items.length / ItemsPerPage)}
+        onPageChange={(page) => setCurrentPage(page)}
+/>*/}
         </div>
+       
         </div>
       </div>
       <CreateModal
